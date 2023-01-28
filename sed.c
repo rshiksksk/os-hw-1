@@ -31,19 +31,21 @@ int main(int argc, char *argv[])
 
 
 void sed(int fd, char* old, char* new) {
-
+    int out_fd = open("input2.txt", O_WRONLY);
 
     int len = strlen(old);
     char ch[len];
     int n;
     while ((n = read(0, ch, len))>0){
         if (!is_matching(old, ch)){
-            write(fd, ch, len);
+            write(out_fd, ch, len);
         }
         else {
-            write(fd, new, strlen(new));
+            write(out_fd, new, strlen(new));
         }
     }
+
+    close(out_fd);
 }
 
 int is_matching(char* old, char* curr) {
