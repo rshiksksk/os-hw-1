@@ -1,5 +1,3 @@
-#include "kernel/types.h"
-#include "kernel/stat.h"
 #include "user.h"
 
 char* replace(char* raw_data, char* old, char* new);
